@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Learning Activity - What's in a question</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* Brand Colors: 
+           #1f2a52 (Midnight Blue)
+           #00bec7 (Teal)
+           #d2f0f0 (Light Aqua)
+           #abb5bf (Slate Grey)
+        */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1f2a52;
+            padding: 2rem 1rem;
+        }
+
+        .activity-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(31, 42, 82, 0.1);
+            overflow: hidden;
+            border: 1px solid #d2f0f0;
+        }
+
+        .header-bar {
+            background-color: #1f2a52;
+            padding: 1.5rem 2rem;
+            color: #ffffff;
+        }
+
+        .content-area {
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+
+        .instruction-text {
+            color: #abb5bf;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .question-wrapper {
+            margin-bottom: 1rem;
+            background-color: #d2f0f0;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .question-wrapper:hover {
+            border-color: #00bec7;
+        }
+
+        .question-icon-container {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background-color: #1f2a52;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            margin-right: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            border: none;
+            outline: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-icon-container:hover {
+            background-color: #00bec7;
+            transform: scale(1.05);
+        }
+
+        .question-icon-container.active {
+            background-color: #00bec7;
+        }
+
+        .question-text-container {
+            flex-grow: 1;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+        }
+
+        .question-text-container.active {
+            max-height: 500px; /* Large enough for content */
+            opacity: 1;
+            transition: max-height 0.5s ease-in, opacity 0.5s ease;
+        }
+
+        .question-text {
+            font-weight: 500;
+            color: #1f2a52;
+            padding-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="activity-card">
+        <!-- Header -->
+        <div class="header-bar">
+            <h1 class="text-2xl font-bold uppercase tracking-wide">What's in a question</h1>
+            <p class="text-sm opacity-80">Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content-area">
+            <p class="instruction-text">
+                Click the question marks below to reveal the lorem ipsum prompts.
+            </p>
+
+            <!-- Question 1 -->
+            <div class="question-wrapper">
+                <button class="question-icon-container" onclick="toggleQuestion(this)" aria-label="Reveal question 1">?</button>
+                <div class="question-text-container">
+                    <p class="question-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-wrapper">
+                <button class="question-icon-container" onclick="toggleQuestion(this)" aria-label="Reveal question 2">?</button>
+                <div class="question-text-container">
+                    <p class="question-text">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident?
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-wrapper">
+                <button class="question-icon-container" onclick="toggleQuestion(this)" aria-label="Reveal question 3">?</button>
+                <div class="question-text-container">
+                    <p class="question-text">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis?
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question-wrapper">
+                <button class="question-icon-container" onclick="toggleQuestion(this)" aria-label="Reveal question 4">?</button>
+                <div class="question-text-container">
+                    <p class="question-text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleQuestion(button) {
+            const container = button.nextElementSibling;
+            
+            // Toggle active classes
+            button.classList.toggle("active");
+            container.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
